@@ -18,6 +18,15 @@ const config = {
             syntax: 'ecmascript',
           },
           transform: {
+            optimizer: {
+              globals: {
+                vars: {
+                  'import.meta.env.VITE_ALLOW_ORIGINS_URL':
+                    "'https://api.allorigins.win/get?url='",
+                  'import.meta.env.VITE_API_URL': "'https://itunes.apple.com'",
+                },
+              },
+            },
             react: {
               runtime: 'automatic',
             },
