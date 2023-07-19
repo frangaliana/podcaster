@@ -27,7 +27,9 @@ const Home = () => {
               ))}
             </Podcasts>
           ) : (
-            <span>No results</span>
+            <span aria-busy role="alert">
+              No results
+            </span>
           )}
         </>
       )}
