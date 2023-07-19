@@ -3,7 +3,12 @@ const theme = {
     background: {
       white: 'var(--color-white)',
     },
+    neutral: {
+      grey20: 'var(--color-grey-20)',
+      grey30: 'var(--color-grey-30)',
+    },
     text: {
+      link: 'var(--color-bright-blue)',
       main: 'var(--color-black)',
     },
   },
