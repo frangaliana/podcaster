@@ -3,7 +3,6 @@ import { defineFeature, loadFeature } from 'jest-cucumber'
 import {
   givenTheUserNavigatesToTheHomePage,
   thenTheUserCanViewTheListOfApplePodcastsSortedByPopularity,
-  whenTheDataHasStoppedLoading,
   whenTheUserIsInTheHomePage,
 } from '~/tests/acceptance/home/get-podcasts-list'
 
@@ -15,7 +14,6 @@ defineFeature(feature, (test) => {
   test('Get the Apple podcasts list', ({ given, then, when }) => {
     givenTheUserNavigatesToTheHomePage(given)
     whenTheUserIsInTheHomePage(when)
-    whenTheDataHasStoppedLoading(when)
     thenTheUserCanViewTheListOfApplePodcastsSortedByPopularity(then)
   })
 })
