@@ -2,17 +2,21 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { SWRConfig } from 'swr'
 
 import { PODCASTS_QUERY } from '~/models/podcasts'
-import episodes from '~/tests/mocks/episodes'
+import Home from '~/pages/Home'
+import Layout from '~/pages/layout'
+import PodcastLayout from '~/pages/layout/PodcastLayout'
+import Podcast from '~/pages/Podcast'
+import { ROUTES } from '~/services/routing/constants'
 import podcasts from '~/tests/mocks/podcasts'
 
-import { render, screen, within } from '../utils'
+import { act, fireEvent, render, screen, within } from '../utils'
 
 export const givenTheUserIsOnTheHomePage = (given) => {
   given('the user is on the Home page', () => {
     render(
       <SWRConfig
         value={{
-          fallback: { [EPISODES_QUERY]: episodes, [PODCASTS_QUERY]: podcasts },
+          fallback: { [PODCASTS_QUERY]: podcasts },
         }}
       >
         <MemoryRouter initialEntries={[ROUTES.HOME]}>
@@ -52,9 +56,7 @@ export const thenTheUserCanSeeTheListOfEpisodesWithTheirInformation = (
 
 export const thenTheUserCanViewTheInformationAboutThisPodcast = (then) => {
   then('the user can view the information about this podcast', () => {
-    const podcast = screen.getByRole('region', {
-      name: 'podcast',
-    })
+    const podcast = screen.getByLabelText('podcast')
 
     expect(podcast).toBeInTheDocument()
   })
@@ -67,7 +69,8 @@ export const whenTheUserClicksOnOnePodcast = (when) => {
     })
     const { getAllByRole } = within(list)
     const items = getAllByRole('listitem')
-    const link = items[0].getByRole('link')
+    const { getByRole } = within(items[0])
+    const link = getByRole('link')
 
     await act(async () => {
       fireEvent.click(link)
