@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
     --color-bright-blue: #4364fa;
     --color-grey-20: #a1b1ba;
     --color-grey-30: #ccdae0;
+    --color-grey-40: #e5ebee;
     --color-white: #ffffff;
 
     --font-primary: Arial, Helvetica, sans-serif;
