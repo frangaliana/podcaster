@@ -20,7 +20,7 @@ const fetcher = async (url) => {
 
   const result = await response.json()
 
-  return result.contents
+  return JSON.parse(result.contents)
 }
 
 export default fetcher

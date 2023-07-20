@@ -6,6 +6,9 @@ const GlobalStyle = createGlobalStyle`
 
   :root {
     --color-black: #000000;
+    --color-bright-blue: #4364fa;
+    --color-grey-20: #a1b1ba;
+    --color-grey-30: #ccdae0;
     --color-white: #ffffff;
 
     --font-primary: Arial, Helvetica, sans-serif;
