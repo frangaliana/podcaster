@@ -9,5 +9,6 @@ Feature: Get the episode details with its playing
     Scenario: Get the episode details
         Given the user is on the Podcast page
         When the user clicks on one episode
+        Then the user can view the information about this podcast
         Then the user can view the information about this episode
         And the user can play the episode
