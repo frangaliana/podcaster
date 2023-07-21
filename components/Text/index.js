@@ -54,3 +54,14 @@ export const H1Styles = css`
 export const H1 = styled.h1`
   ${H1Styles}
 `
+
+export const H4Styles = css`
+  font-family: ${({ theme }) => theme.font.families.primary};
+  font-size: ${({ theme }) => theme.font.sizes.large};
+  font-weight: ${({ theme }) => theme.font.weights.bold};
+  line-height: ${({ theme }) => theme.font.lineHeights.large};
+`
+
+export const H4 = styled.h4`
+  ${H4Styles}
+`

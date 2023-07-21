@@ -7,8 +7,14 @@ const theme = {
       grey20: 'var(--color-grey-20)',
       grey30: 'var(--color-grey-30)',
       grey40: 'var(--color-grey-40)',
+      grey50: 'var(--color-grey-50)',
+      grey60: 'var(--color-grey-60)',
+    },
+    primary: {
+      brightPurple: 'var(--color-bright-purple)',
     },
     text: {
+      input: 'var(--color-black)',
       link: 'var(--color-bright-blue)',
       main: 'var(--color-black)',
     },

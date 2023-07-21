@@ -14,5 +14,5 @@ export const Header = styled.nav`
 
 export const Link = styled(DefaultLink)`
   ${H1Styles}
-  color: ${({ theme }) => theme.colors.text.link};
+  color: ${({ theme }) => theme.colors.primary.brightPurple};
 `

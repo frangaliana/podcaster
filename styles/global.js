@@ -5,11 +5,14 @@ const GlobalStyle = createGlobalStyle`
   ${reset}
 
   :root {
-    --color-black: #000000;
+    --color-black: #2b333a;
     --color-bright-blue: #4364fa;
+    --color-bright-purple: #6542d1;
     --color-grey-20: #a1b1ba;
     --color-grey-30: #ccdae0;
     --color-grey-40: #e5ebee;
+    --color-grey-50: #f2f5f7;
+    --color-grey-60: #f9fafb;
     --color-white: #ffffff;
 
     --font-primary: Arial, Helvetica, sans-serif;

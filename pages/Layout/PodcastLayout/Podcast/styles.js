@@ -13,6 +13,7 @@ export const Author = styled(Link)`
 `
 
 export const Description = styled(Body2)`
+  font-style: italic;
   word-break: break-word;
 `
 
