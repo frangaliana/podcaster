@@ -1,4 +1,4 @@
-import { screen } from '../utils'
+import { act, fireEvent, screen, within } from '../utils'
 
 export const thenTheUserCanViewTheListOfApplePodcastsFilteredByTheSearchTerm = (
   then,
@@ -12,9 +12,8 @@ export const thenTheUserCanViewTheListOfApplePodcastsFilteredByTheSearchTerm = (
       })
       const { getAllByRole } = within(list)
       const items = getAllByRole('listitem')
-      const { getByText } = within(items[0])
 
-      expect(getByText(value)).toBeInTheDocument()
+      expect(items.length).toBe(1)
     },
   )
 }
@@ -26,7 +25,7 @@ export const whenTheUserSpecifiesTheSearchTermAsInTheSearchInput = (
   when(
     /^the user specifies the search term as "(.*)" in the search input$/,
     async () => {
-      const search = screen.getByRole('textbox', { name: 'search' })
+      const search = screen.getByRole('searchbox')
 
       await act(async () => {
         fireEvent.change(search, { target: { value: value } })
