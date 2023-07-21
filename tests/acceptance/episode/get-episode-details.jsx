@@ -31,7 +31,9 @@ export const givenTheUserIsOnThePodcastPage = (given) => {
         }}
       >
         <MemoryRouter
-          initialEntries={[generatePath(ROUTES.PODCAST, { id: 1535809341 })]}
+          initialEntries={[
+            generatePath(ROUTES.PODCAST, { podcastId: 1535809341 }),
+          ]}
         >
           <Routes>
             <Route element={<Layout />}>
@@ -49,9 +51,9 @@ export const givenTheUserIsOnThePodcastPage = (given) => {
 
 export const thenTheUsercanPlayTheEpisode = (then) => {
   then('the user can play the episode', () => {
-    const episode = screen.getByText(/player/i)
+    const player = screen.getByLabelText(/player/i)
 
-    expect(episode).toBeInTheDocument()
+    expect(player).toBeInTheDocument()
   })
 }
 
@@ -77,7 +79,7 @@ export const whenTheUserClicksOnOneEpisode = (when) => {
       name: 'episodes',
     })
     const { getAllByRole } = within(table)
-    const items = getAllByRole('row')
+    const items = getAllByRole('cell')
     const { getByRole } = within(items[0])
     const link = getByRole('link')
 
