@@ -1,12 +1,15 @@
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { SWRConfig } from 'swr'
 
+import { generatePathWithSearchParams } from '~/lib/generate-path-with-search-params'
+import { EPISODES_QUERY } from '~/models/episodes'
 import { PODCASTS_QUERY } from '~/models/podcasts'
 import Home from '~/pages/Home'
 import Layout from '~/pages/layout'
 import PodcastLayout from '~/pages/layout/PodcastLayout'
 import Podcast from '~/pages/Podcast'
 import { ROUTES } from '~/services/routing/constants'
+import episodes from '~/tests/mocks/episodes'
 import podcasts from '~/tests/mocks/podcasts'
 
 import { act, fireEvent, render, screen, within } from '../utils'
@@ -16,7 +19,15 @@ export const givenTheUserIsOnTheHomePage = (given) => {
     render(
       <SWRConfig
         value={{
-          fallback: { [PODCASTS_QUERY]: podcasts },
+          fallback: {
+            [generatePathWithSearchParams(EPISODES_QUERY, {
+              entity: 'podcastEpisode',
+              id: 1535809341,
+              limit: 20,
+              media: 'podcast',
+            })]: episodes,
+            [PODCASTS_QUERY]: podcasts,
+          },
         }}
       >
         <MemoryRouter initialEntries={[ROUTES.HOME]}>
@@ -36,11 +47,11 @@ export const givenTheUserIsOnTheHomePage = (given) => {
 
 export const thenTheUserCanSeTheNumberOfEpisodesOfThisPodcast = (then) => {
   then('the user can see the number of episodes of this podcast', () => {
-    const list = screen.getByRole('list', {
+    const table = screen.getByRole('table', {
       name: 'episodes',
     })
 
-    expect(list).toBeInTheDocument()
+    expect(table).toBeInTheDocument()
   })
 }
 
