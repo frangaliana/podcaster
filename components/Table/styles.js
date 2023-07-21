@@ -27,7 +27,7 @@ export const Component = styled.table`
           }
 
           ${Row}:nth-child(odd) {
-            background-color: ${({ theme }) => theme.colors.neutral.grey60};
+            background-color: ${({ theme }) => theme.colors.neutral.grey50};
           }
         `
       : null};
