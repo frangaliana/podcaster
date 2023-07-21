@@ -17,6 +17,7 @@ const theme = {
       input: 'var(--color-black)',
       link: 'var(--color-bright-blue)',
       main: 'var(--color-black)',
+      placeholder: 'var(--color-grey-60)',
     },
   },
   font: {
