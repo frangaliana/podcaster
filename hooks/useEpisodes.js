@@ -4,12 +4,12 @@ import useSWR from 'swr'
 import { generatePathWithSearchParams } from '~/lib/generate-path-with-search-params'
 import { Episode, EPISODES_QUERY } from '~/models/episodes'
 
-const useEpisodes = ({ id }) => {
+const useEpisodes = ({ podcastId }) => {
   const { data, isLoading } = useSWR(
-    id
+    podcastId
       ? generatePathWithSearchParams(EPISODES_QUERY, {
           entity: 'podcastEpisode',
-          id,
+          id: podcastId,
           limit: 20,
           media: 'podcast',
         })

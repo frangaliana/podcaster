@@ -1,14 +1,16 @@
 import { useMemo } from 'react'
-import { useParams } from 'react-router-dom'
+import { generatePath, useParams } from 'react-router-dom'
 
 import { Body1, Body1Highlighted } from '~/components/Text'
 import useEpisodes from '~/hooks/useEpisodes'
+import { ROUTES } from '~/services/routing/constants'
 
 import { Item } from './models/item'
+import { Title } from './styles'
 
 export const usePodcast = () => {
   const { podcastId } = useParams()
-  const { episodes, isLoading } = useEpisodes({ id: podcastId })
+  const { episodes, isLoading } = useEpisodes({ podcastId })
 
   const items = useMemo(
     () => (episodes ? episodes.map(Item.fromEpisode) : []),
@@ -36,7 +38,16 @@ export const usePodcast = () => {
         ? items.map((value, index) => ({
             cells: [
               {
-                children: <Body1>{value.title}</Body1>,
+                children: (
+                  <Title
+                    to={generatePath(ROUTES.EPISODE, {
+                      episodeId: value.id,
+                      podcastId,
+                    })}
+                  >
+                    {value.title}
+                  </Title>
+                ),
               },
               {
                 children: <Body1>{value.date}</Body1>,
@@ -48,7 +59,7 @@ export const usePodcast = () => {
             value: index.toString(),
           }))
         : [],
-    [items],
+    [items, podcastId],
   )
 
   return { headerCells, isLoading, itemRows }

@@ -65,3 +65,10 @@ export const H4Styles = css`
 export const H4 = styled.h4`
   ${H4Styles}
 `
+
+export const LinkStyles = css`
+  font-family: ${({ theme }) => theme.font.families.primary};
+  font-size: ${({ theme }) => theme.font.sizes.default};
+  font-weight: ${({ theme }) => theme.font.weights.normal};
+  line-height: ${({ theme }) => theme.font.lineHeights.default};
+`
