@@ -3,7 +3,7 @@ export const Episode = {
     date: dto.releaseDate,
     description: dto.description,
     duration: dto.trackTimeMillis,
-    id: dto.trackId,
+    id: dto.trackId.toString(),
     title: dto.trackName,
     url: dto.episodeUrl,
   }),
