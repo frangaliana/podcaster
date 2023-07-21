@@ -6,8 +6,15 @@ const theme = {
     neutral: {
       grey20: 'var(--color-grey-20)',
       grey30: 'var(--color-grey-30)',
+      grey40: 'var(--color-grey-40)',
+      grey50: 'var(--color-grey-50)',
+      grey60: 'var(--color-grey-60)',
+    },
+    primary: {
+      brightPurple: 'var(--color-bright-purple)',
     },
     text: {
+      input: 'var(--color-black)',
       link: 'var(--color-bright-blue)',
       main: 'var(--color-black)',
     },
@@ -49,8 +56,6 @@ const theme = {
   shadows: {
     extralight:
       '0rem 0.0625rem 0.625rem rgba(55, 40, 102, 0.03), 0rem 0.0625rem 0.5rem rgba(55, 40, 102, 0.06), 0rem 0.125rem 0.25rem -0.0625rem rgba(55, 40, 102, 0.08)',
-    light:
-      '0rem 0.1875rem 0.875rem 0.125rem rgba(55, 40, 102, 0.06), 0rem 0rem 0.625rem 0.0625rem rgba(55, 40, 102, 0.08), 0rem 0.3125rem 0.3125rem -0.1875rem rgba(55, 40, 102, 0.08)',
   },
 }
 

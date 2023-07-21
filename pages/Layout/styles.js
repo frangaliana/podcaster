@@ -9,10 +9,10 @@ export const Container = styled.div`
 
 export const Header = styled.nav`
   border-bottom: 0.0625rem solid ${({ theme }) => theme.colors.neutral.grey30};
-  padding: 0.5rem 0;
+  padding: 0.5rem;
 `
 
 export const Link = styled(DefaultLink)`
   ${H1Styles}
-  color: ${({ theme }) => theme.colors.text.link};
+  color: ${({ theme }) => theme.colors.primary.brightPurple};
 `
